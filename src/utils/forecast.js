@@ -11,11 +11,12 @@ const getWeatherInfo = (data, callback) => {
             callback('Unable to get weather!', undefined)
             return
         }
-        // console.log(response.body.current)
+        console.log(response.body.current)
         const {temperature, precip, feelslike} = response.body.current
-        const weatherDesc = response.body.current.weather_descriptions
+        const weatherDesc = response.body.current.weather_descriptions[0]
         const {name, region, country} = response.body.location
-        callback(undefined, {temperature, precip, weatherDesc, feelslike, location: {name, region, country}})
+        const icon = response.body.current.weather_icons[0]
+        callback(undefined, {temperature, precip, weatherDesc, feelslike, icon, location: {name, region, country}})
     })
 }
 

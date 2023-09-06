@@ -13,12 +13,14 @@ function displayWeatherDetails(address, callback) {
                 return callback(error, undefined)
             }
             const temperature = data.temperature
-            const precipetation = data.precip
+            const precipitation = data.precip
 
             const location = `Weather update for  ${data.location.name}, ${data.location.region}, ${data.location.country}`
-            const forecast = `${data.weatherDesc[0]}. It is currently ${temperature} degrees out, but it feels like ${data.feelslike} degrees. There is a ${precipetation}% change of rain.`
+            const forecast = `${data.weatherDesc}. It is currently ${temperature} degrees out, but it feels like ${data.feelslike} degrees. There is a ${precipitation}% change of rain.`
+            const icon = data.icon
+            // console.log(data)
 
-            return callback(undefined, {location, forecast})
+            return callback(undefined, {location, forecast, icon})
         })
     })
 }

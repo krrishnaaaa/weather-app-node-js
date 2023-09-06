@@ -86,7 +86,8 @@ app.get('/weather', (req, res) => {
         if (response) {
             return res.send({
                 location: response.location,
-                forecast: response.forecast
+                forecast: response.forecast,
+                icon: response.icon
             })
             // return res.render('weather', {
             //     title: 'Weather Forecast',
